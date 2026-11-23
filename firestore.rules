@@ -1,0 +1,10 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Izinkan akses read & write untuk semua koleksi agar aplikasi web admin
+    // dan aplikasi Android (com.aistudio.absensdit.pohuwato) dapat membaca dan menulis data
+    match /{document=**} {
+      allow read, write: if true;
+    }
+  }
+}

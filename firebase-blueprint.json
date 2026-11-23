@@ -1,0 +1,189 @@
+{
+  "entities": {
+    "Employee": {
+      "title": "Employee",
+      "description": "Data master pegawai SDIT Al Izzah Pohuwato (Guru & Tenaga Kependidikan)",
+      "type": "object",
+      "properties": {
+        "nip": { "type": "string", "maxLength": 50 },
+        "name": { "type": "string", "maxLength": 100 },
+        "nama": { "type": "string", "maxLength": 100 },
+        "position": { "type": "string", "maxLength": 100 },
+        "jabatan": { "type": "string", "maxLength": 100 },
+        "role": { "type": "string" },
+        "peran": { "type": "string" },
+        "phone": { "type": "string", "maxLength": 30 },
+        "no_hp": { "type": "string", "maxLength": 30 },
+        "deviceId": { "type": "string", "maxLength": 128 },
+        "device_id": { "type": "string", "maxLength": 128 },
+        "id_perangkat": { "type": "string", "maxLength": 128 },
+        "isActive": { "type": "boolean" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["nip"]
+    },
+    "Attendance": {
+      "title": "Attendance",
+      "description": "Catatan absensi harian pegawai sinkron dengan com.aistudio.absensdit.pohuwato",
+      "type": "object",
+      "properties": {
+        "employeeId": { "type": "string", "maxLength": 64 },
+        "nip": { "type": "string", "maxLength": 50 },
+        "employeeName": { "type": "string", "maxLength": 100 },
+        "nama": { "type": "string", "maxLength": 100 },
+        "date": { "type": "string" },
+        "tanggal": { "type": "string" },
+        "checkInTime": { "type": "string", "maxLength": 30 },
+        "jam_masuk": { "type": "string", "maxLength": 30 },
+        "checkInPhoto": { "type": "string" },
+        "foto": { "type": "string" },
+        "checkInLat": { "type": "number" },
+        "lat": { "type": "number" },
+        "latitude": { "type": "number" },
+        "checkInLng": { "type": "number" },
+        "lng": { "type": "number" },
+        "longitude": { "type": "number" },
+        "checkInDistance": { "type": "number" },
+        "jarak": { "type": "number" },
+        "checkOutTime": { "type": "string", "maxLength": 30 },
+        "jam_pulang": { "type": "string", "maxLength": 30 },
+        "checkOutPhoto": { "type": "string" },
+        "status": { "type": "string" },
+        "notes": { "type": "string", "maxLength": 500 },
+        "keterangan": { "type": "string", "maxLength": 500 },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["nip", "status"]
+    },
+    "LeaveRequest": {
+      "title": "LeaveRequest",
+      "description": "Pengajuan Izin, Sakit, atau Dinas pegawai",
+      "type": "object",
+      "properties": {
+        "employeeId": { "type": "string", "maxLength": 64 },
+        "nip": { "type": "string", "maxLength": 50 },
+        "employeeName": { "type": "string", "maxLength": 100 },
+        "nama": { "type": "string", "maxLength": 100 },
+        "type": { "type": "string" },
+        "jenis": { "type": "string" },
+        "startDate": { "type": "string" },
+        "tanggal_mulai": { "type": "string" },
+        "endDate": { "type": "string" },
+        "tanggal_selesai": { "type": "string" },
+        "reason": { "type": "string", "maxLength": 500 },
+        "alasan": { "type": "string", "maxLength": 500 },
+        "attachmentUrl": { "type": "string" },
+        "bukti": { "type": "string" },
+        "status": { "type": "string" },
+        "reviewedBy": { "type": "string", "maxLength": 100 },
+        "reviewedAt": { "type": "string" },
+        "rejectionReason": { "type": "string", "maxLength": 255 },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["nip", "status"]
+    },
+    "SchoolConfig": {
+      "title": "SchoolConfig",
+      "description": "Pengaturan jam kerja, koordinat GPS sekolah, radius, dan integrasi WhatsApp",
+      "type": "object",
+      "properties": {
+        "schoolName": { "type": "string", "maxLength": 100 },
+        "checkInStart": { "type": "string", "maxLength": 10 },
+        "checkInEnd": { "type": "string", "maxLength": 10 },
+        "lateToleranceMinutes": { "type": "number" },
+        "checkOutStart": { "type": "string", "maxLength": 10 },
+        "checkOutEnd": { "type": "string", "maxLength": 10 },
+        "schoolLat": { "type": "number" },
+        "schoolLng": { "type": "number" },
+        "radiusMeters": { "type": "number" },
+        "autoAlpaTime": { "type": "string", "maxLength": 10 },
+        "whatsappApiUrl": { "type": "string", "maxLength": 255 },
+        "whatsappApiKey": { "type": "string", "maxLength": 255 },
+        "whatsappSenderNumber": { "type": "string", "maxLength": 30 },
+        "whatsappTemplate": { "type": "string", "maxLength": 500 },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["schoolName", "checkInStart", "checkInEnd", "checkOutStart", "schoolLat", "schoolLng", "radiusMeters"]
+    },
+    "Holiday": {
+      "title": "Holiday",
+      "description": "Daftar hari libur sekolah",
+      "type": "object",
+      "properties": {
+        "date": { "type": "string" },
+        "name": { "type": "string", "maxLength": 150 },
+        "type": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["date", "name"]
+    },
+    "AdminUser": {
+      "title": "AdminUser",
+      "description": "Data akun administrator",
+      "type": "object",
+      "properties": {
+        "email": { "type": "string", "maxLength": 100 },
+        "name": { "type": "string", "maxLength": 100 },
+        "role": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["email", "name", "role"]
+    }
+  },
+  "firestore": {
+    "/employees/{employeeId}": {
+      "schema": { "$ref": "#/entities/Employee" },
+      "description": "Koleksi pegawai (English)"
+    },
+    "/pegawai/{pegawaiId}": {
+      "schema": { "$ref": "#/entities/Employee" },
+      "description": "Koleksi pegawai (Bahasa Indonesia untuk com.aistudio.absensdit.pohuwato)"
+    },
+    "/attendance/{attendanceId}": {
+      "schema": { "$ref": "#/entities/Attendance" },
+      "description": "Koleksi absensi (English)"
+    },
+    "/attendances/{attendanceId}": {
+      "schema": { "$ref": "#/entities/Attendance" },
+      "description": "Koleksi absensi (plural)"
+    },
+    "/absensi/{absensiId}": {
+      "schema": { "$ref": "#/entities/Attendance" },
+      "description": "Koleksi absensi (Bahasa Indonesia untuk com.aistudio.absensdit.pohuwato)"
+    },
+    "/presensi/{presensiId}": {
+      "schema": { "$ref": "#/entities/Attendance" },
+      "description": "Koleksi presensi alternatif"
+    },
+    "/leaveRequests/{requestId}": {
+      "schema": { "$ref": "#/entities/LeaveRequest" },
+      "description": "Koleksi izin (English)"
+    },
+    "/izin/{izinId}": {
+      "schema": { "$ref": "#/entities/LeaveRequest" },
+      "description": "Koleksi permohonan izin (Bahasa Indonesia untuk com.aistudio.absensdit.pohuwato)"
+    },
+    "/pengajuan_izin/{izinId}": {
+      "schema": { "$ref": "#/entities/LeaveRequest" },
+      "description": "Koleksi pengajuan izin alternatif"
+    },
+    "/settings/{settingId}": {
+      "schema": { "$ref": "#/entities/SchoolConfig" },
+      "description": "Koleksi settings (English)"
+    },
+    "/pengaturan/{settingId}": {
+      "schema": { "$ref": "#/entities/SchoolConfig" },
+      "description": "Koleksi pengaturan sekolah untuk aplikasi mobile"
+    },
+    "/holidays/{holidayId}": {
+      "schema": { "$ref": "#/entities/Holiday" },
+      "description": "Daftar hari libur"
+    },
+    "/adminUsers/{adminId}": {
+      "schema": { "$ref": "#/entities/AdminUser" },
+      "description": "Akun admin"
+    }
+  }
+}

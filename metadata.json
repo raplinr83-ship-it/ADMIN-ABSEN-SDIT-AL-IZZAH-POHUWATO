@@ -1,0 +1,8 @@
+{
+  "name": "Remix ADMIN ABSEN SDIT AL IZZAH POHUWATO",
+  "description": "Dashboard Administrator Presensi dan Absensi Kepegawaian SDIT Al Izzah Pohuwato",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
